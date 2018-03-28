@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="50dp"
+    tools:context="br.edu.ifpr.pesquisa.Q1Activity"
+    tools:layout_editor_absoluteY="89dp">
+
+    <TextView
+        android:id="@+id/tv_q1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="30sp"
+        android:text=""
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="q1" />
+
+    <TextView
+        android:id="@+id/tv_r2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="28dp"
+        android:text=""
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ch_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintStart_toEndOf="@+id/ch_2"
+        tools:text="r2" />
+
+    <TextView
+        android:id="@+id/tv_r1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="28dp"
+        android:text="r1"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ch_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintStart_toEndOf="@+id/ch_1" />
+
+    <TextView
+        android:id="@+id/tv_r3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="28dp"
+        android:text="r3"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ch_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintStart_toEndOf="@+id/ch_3" />
+
+    <TextView
+        android:id="@+id/tv_r4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="28dp"
+        android:text="r4"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ch_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintStart_toEndOf="@+id/ch_4" />
+
+    <net.qiujuer.genius.ui.widget.CheckBox
+
+        android:id="@+id/ch_3"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:background="@null"
+        app:gBorderSize="1dp"
+        app:gFont="roboto.ttf"
+        app:gIntervalSize="2dp"
+        app:gMarkColor="@color/colorPrimaryDark"
+        app:gMarkSize="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ch_2" />
+
+    <net.qiujuer.genius.ui.widget.CheckBox
+
+        android:id="@+id/ch_4"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:background="@null"
+        app:gBorderSize="1dp"
+        app:gFont="roboto.ttf"
+        app:gIntervalSize="2dp"
+        app:gMarkColor="@color/colorPrimaryDark"
+        app:gMarkSize="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ch_3" />
+
+    <net.qiujuer.genius.ui.widget.CheckBox
+
+        android:id="@+id/ch_2"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:background="@null"
+        app:gBorderSize="1dp"
+        app:gFont="roboto.ttf"
+        app:gIntervalSize="2dp"
+        app:gMarkColor="@color/colorPrimaryDark"
+        app:gMarkSize="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ch_1" />
+
+    <net.qiujuer.genius.ui.widget.CheckBox
+
+        android:id="@+id/ch_1"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="32dp"
+        android:layout_weight="1"
+        android:background="@null"
+        app:gBorderSize="1dp"
+        app:gFont="roboto.ttf"
+        app:gIntervalSize="2dp"
+        app:gMarkColor="@color/colorPrimaryDark"
+        app:gMarkSize="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_q1" />
+
+    <net.qiujuer.genius.ui.widget.Button
+        android:id="@+id/bt_go"
+        android:layout_width="180dp"
+        android:layout_height="84dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:text="Próxima"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:gTouchDurationRate="0.7"
+        app:gTouchEffect="auto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.959"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+</android.support.constraint.ConstraintLayout>
