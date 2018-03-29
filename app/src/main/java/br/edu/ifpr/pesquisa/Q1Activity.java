@@ -53,6 +53,7 @@ public class Q1Activity extends AppCompatActivity {
     List<Perguntas> perguntasList;
     int indice = 0;
     private Menu menu;
+    boolean status = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +79,7 @@ public class Q1Activity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getTitle().equals("salva")) {
-          finalizaPesquisa();
+            finalizaPesquisa();
 
             return true;
         }
@@ -112,6 +113,7 @@ public class Q1Activity extends AppCompatActivity {
                 ch1.setChecked(false);
                 ch3.setChecked(false);
                 ch4.setChecked(false);
+                status = true;
                 resposta.setResposta(tvR2.getText().toString());
                 break;
             case R.id.ch_1:
@@ -119,6 +121,7 @@ public class Q1Activity extends AppCompatActivity {
                 ch2.setChecked(false);
                 ch3.setChecked(false);
                 ch4.setChecked(false);
+                status = true;
                 resposta.setResposta(tvR1.getText().toString());
 
                 break;
@@ -127,6 +130,7 @@ public class Q1Activity extends AppCompatActivity {
                 ch1.setChecked(false);
                 ch3.setChecked(false);
                 ch2.setChecked(false);
+                status = true;
                 resposta.setResposta(tvR4.getText().toString());
 
                 break;
@@ -135,39 +139,44 @@ public class Q1Activity extends AppCompatActivity {
                 ch1.setChecked(false);
                 ch2.setChecked(false);
                 ch4.setChecked(false);
+                status = true;
                 resposta.setResposta(tvR3.getText().toString());
 
                 break;
             case R.id.bt_go:
-                ch1.setChecked(false);
-                ch3.setChecked(false);
-                ch4.setChecked(false);
-                ch2.setChecked(false);
-                ch3.setVisibility(View.VISIBLE);
-                ch4.setVisibility(View.VISIBLE);
-                tvR3.setVisibility(View.VISIBLE);
-                tvR4.setVisibility(View.VISIBLE);
-                resposta.setCodigoPesquisa(A.CODIGO_PESQUISA);
-                resposta.setTitulo(tvQ1.getText().toString());
-                resposta.save();
-                if(indice == 4 || indice == 5){
-                    if(resposta.getResposta().equals("Não")){
-                    reiniciaPesquisa();
+                if(status){
+                    ch1.setChecked(false);
+                    ch3.setChecked(false);
+                    ch4.setChecked(false);
+                    ch2.setChecked(false);
+                    ch3.setVisibility(View.VISIBLE);
+                    ch4.setVisibility(View.VISIBLE);
+                    tvR3.setVisibility(View.VISIBLE);
+                    tvR4.setVisibility(View.VISIBLE);
+                    resposta.setCodigoPesquisa(A.CODIGO_PESQUISA);
+                    resposta.setTitulo(tvQ1.getText().toString());
+                    resposta.save();
+                    if(indice == 4 || indice == 5){
+                        if(resposta.getResposta().equals("Não")){
+                            reiniciaPesquisa();
 
+                        }else{
+                            indice++;
+                            setQuestao(indice);
+                        }
                     }else{
                         indice++;
-                        setQuestao(indice);
+                        System.out.println("val = "+ indice+" "+ perguntasList.size()  );
+                        if(indice < perguntasList.size()) {
+                            setQuestao(indice);
+
+                        }else{
+                            reiniciaPesquisa();
+                        }
+
                     }
                 }else{
-                    indice++;
-                    System.out.println("val = "+ indice+" "+ perguntasList.size()  );
-                    if(indice < perguntasList.size()) {
-                        setQuestao(indice);
-
-                    }else{
-                        reiniciaPesquisa();
-                    }
-
+                    A.showMsg("Selecione uma opção",Q1Activity.this);
                 }
                 break;
         }
@@ -182,7 +191,7 @@ public class Q1Activity extends AppCompatActivity {
         alerta.setPositiveButton("Próxima entrevista", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-               setQuestao(indice);
+                setQuestao(indice);
             }
         });
 
@@ -201,18 +210,18 @@ public class Q1Activity extends AppCompatActivity {
                 .setConfirmButton(android.R.string.ok, new LovelyTextInputDialog.OnTextInputConfirmListener() {
                     @Override
                     public void onTextInputConfirmed(String text) {
-                       Pesquisa p = Select.from(Pesquisa.class)
-                               .where(Condition.prop("codigo").eq(MySugar.queryMax(Pesquisa.class,"codigo",Q1Activity.this)))
-                               .list()
-                               .get(0);
-                            p.setStatus(true);
-                            p.save();
-                            Intent it = new Intent( Q1Activity.this, PerguntaActivity.class);
-                            startActivity(it);
-                            finish();
-                        }
-                    })
+                        Pesquisa p = Select.from(Pesquisa.class)
+                                .where(Condition.prop("codigo").eq(MySugar.queryMax(Pesquisa.class,"codigo",Q1Activity.this)))
+                                .list()
+                                .get(0);
+                        p.setStatus(true);
+                        p.save();
+                        Intent it = new Intent( Q1Activity.this, PerguntaActivity.class);
+                        startActivity(it);
+                        finish();
+                    }
+                })
 
-            .show();
+                .show();
     }
 }

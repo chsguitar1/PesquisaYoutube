@@ -156,7 +156,8 @@ public class PerguntaActivity extends AppCompatActivity {
     }
 
     public boolean convertHappiness() {
-        String FILENAME = "pesquisa.csv";
+        Pesquisa pes = Pesquisa.listAll(Pesquisa.class).get(0);
+        String FILENAME = "pesquisa"+A.dataParaString(new Date())+"-"+pes.getCodigo()+".csv";
         File directoryDownload = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         File logDir = new File(directoryDownload, FILENAME);
         try {
